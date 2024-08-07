@@ -1,8 +1,24 @@
 {
   "name": "vite-vue-js-shaka-player",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "version": "1.0.0",
+  "description": "Simple Vue application using Vite, JavaScript and Shaka Player.",
+  "keywords": [
+    "spa",
+    "vue",
+    "vite",
+    "javascript",
+    "shaka-player",
+    "video",
+    "video-player"
+  ],
+  "homepage": "https://github.com/gianantoniopini/vite-vue-js-shaka-player#readme",
+  "license": "MIT",
+  "author": "Gianantonio Pini (https://github.com/gianantoniopini/)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gianantoniopini/vite-vue-js-shaka-player.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,5 +30,10 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
     "vite": "^5.3.4"
-  }
+  },
+  "engines": {
+    "node": ">=20.11.0",
+    "npm": ">=10.2.4"
+  },
+  "private": true
 }

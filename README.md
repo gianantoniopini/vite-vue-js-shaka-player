@@ -1,5 +1,36 @@
-# Vue 3 + Vite
+# Vite Vue JS Shaka Player
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A simple Vue application using Vite, JavaScript and Shaka Player
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+This project is intended as a basic example of how to integrate [Shaka Player](https://github.com/shaka-project/shaka-player) into a Vue application using Vite and JavaScript.
+
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Install](#install)
+- [Run](#run)
+- [License](#license)
+
+## Prerequisites
+
+This project requires [Node.js](http://nodejs.org) and [npm](https://npmjs.com) to be installed locally.
+
+## Install
+
+Install dependencies:
+
+```sh
+npm install
+```
+
+## Run
+
+Start Vite dev server:
+
+```sh
+npm run dev
+```
+
+## License
+
+[MIT](LICENSE) © Gianantonio Pini

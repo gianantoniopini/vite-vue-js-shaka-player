@@ -27,6 +27,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "shaka-player": "^4.10.9",
     "vue": "^3.4.31"
   },
   "devDependencies": {

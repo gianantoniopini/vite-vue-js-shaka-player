@@ -1,8 +1,12 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { defineProps, onMounted, ref, watch } from 'vue'
 
 import shakaPlayerUi from 'shaka-player/dist/shaka-player.ui.js'
 import 'shaka-player/dist/controls.css'
+
+const props = defineProps({
+  manifestUri: String
+})
 
 const posterUri = 'https://shaka-player-demo.appspot.com/assets/poster.jpg'
 
@@ -14,8 +18,14 @@ const localPlayer = new shakaPlayerUi.Player()
 
 onMounted(async () => {
   await initShakaPlayerUi()
-  await loadVideo('https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd')
 })
+
+watch(
+  () => props.manifestUri,
+  (newValue) => {
+    loadVideo(newValue)
+  }
+)
 
 const initShakaPlayerUi = async () => {
   message.value = 'Initializing the Shaka Player UI. Please wait...'

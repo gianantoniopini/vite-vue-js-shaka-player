@@ -4,34 +4,52 @@ import { onMounted, ref } from 'vue'
 import shakaPlayerUi from 'shaka-player/dist/shaka-player.ui.js'
 import 'shaka-player/dist/controls.css'
 
-const manifestUri = 'https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd'
 const posterUri = 'https://shaka-player-demo.appspot.com/assets/poster.jpg'
 
 const videoContainerElement = ref(null)
 const videoElement = ref(null)
 const message = ref('')
 
+const localPlayer = new shakaPlayerUi.Player()
+
 onMounted(async () => {
-  message.value = 'Loading Video. Please wait...'
+  await initShakaPlayerUi()
+  await loadVideo('https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd')
+})
+
+const initShakaPlayerUi = async () => {
+  message.value = 'Initializing Shaka Player UI. Please wait...'
 
   try {
-    const localPlayer = new shakaPlayerUi.Player()
     const ui = new shakaPlayerUi.ui.Overlay(
       localPlayer,
       videoContainerElement.value,
       videoElement.value
     )
+
     await localPlayer.attach(videoElement.value)
 
     ui.getControls()
 
-    await localPlayer.load(manifestUri)
-    message.value = 'Video loaded!'
+    message.value = 'Shaka Player UI initialized.'
   } catch (error) {
-    console.error('Error', error)
-    message.value = 'An error occurred. Please check the browser console for more details.'
+    message.value = 'An error occurred while initializing Shaka Player UI.'
+    throw error
   }
-})
+}
+
+const loadVideo = async (manifestUri) => {
+  message.value = `Loading video ${manifestUri} . Please wait...`
+
+  try {
+    await localPlayer.load(manifestUri)
+
+    message.value = `Video ${manifestUri} loaded.`
+  } catch (error) {
+    message.value = `An error occurred while loading video ${manifestUri} .`
+    throw error
+  }
+}
 </script>
 
 <template>

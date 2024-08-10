@@ -18,7 +18,7 @@ onMounted(async () => {
 })
 
 const initShakaPlayerUi = async () => {
-  message.value = 'Initializing Shaka Player UI. Please wait...'
+  message.value = 'Initializing the Shaka Player UI. Please wait...'
 
   try {
     const ui = new shakaPlayerUi.ui.Overlay(
@@ -31,9 +31,9 @@ const initShakaPlayerUi = async () => {
 
     ui.getControls()
 
-    message.value = 'Shaka Player UI initialized.'
+    message.value = 'Shaka Player UI has been initialized.'
   } catch (error) {
-    message.value = 'An error occurred while initializing Shaka Player UI.'
+    message.value = 'An error occurred while initializing the Shaka Player UI.'
     throw error
   }
 }
@@ -44,7 +44,7 @@ const loadVideo = async (manifestUri) => {
   try {
     await localPlayer.load(manifestUri)
 
-    message.value = `Video ${manifestUri} loaded.`
+    message.value = `Video ${manifestUri} has been loaded.`
   } catch (error) {
     message.value = `An error occurred while loading video ${manifestUri} .`
     throw error

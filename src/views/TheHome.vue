@@ -11,7 +11,7 @@ const onVideoPlayerInputSubmit = (value) => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-5 w-full h-full">
+  <div class="flex flex-col gap-5">
     <video-player-input @submit="onVideoPlayerInputSubmit" />
     <hr />
     <video-player :manifest-uri="manifestUri" />

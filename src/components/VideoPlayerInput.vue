@@ -10,30 +10,14 @@ const videoManifestUri = ref(defaultVideoManifestUri)
 </script>
 
 <template>
-  <div id="container">
-    <label for="videoManifestUriInput">Video manifest:</label>
+  <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+    <label for="videoManifestUriInput" class="whitespace-nowrap">Video manifest:</label>
     <input
       id="videoManifestUriInput"
+      class="w-full"
       v-model="videoManifestUri"
       placeholder="Enter the video manifest url"
     />
-    <button id="submitButton" @click="emit('submit', videoManifestUri)">Submit</button>
+    <button @click="emit('submit', videoManifestUri)" class="whitespace-nowrap">Load video</button>
   </div>
 </template>
-
-<style scoped>
-#container {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  gap: 10px;
-  border: 1px solid;
-  border-radius: 4px;
-  padding: 10px;
-  width: 100%;
-}
-
-#videoManifestUriInput {
-  width: 440px;
-}
-</style>

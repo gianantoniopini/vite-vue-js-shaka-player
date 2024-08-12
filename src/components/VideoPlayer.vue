@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, onMounted, ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 import shakaPlayerUi from 'shaka-player/dist/shaka-player.ui.js'
 import 'shaka-player/dist/controls.css'

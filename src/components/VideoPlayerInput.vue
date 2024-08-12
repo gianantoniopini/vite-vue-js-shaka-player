@@ -7,6 +7,10 @@ const defaultVideoManifestUri =
   'https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd'
 
 const videoManifestUri = ref(defaultVideoManifestUri)
+
+const onSubmit = () => {
+  emit('submit', videoManifestUri.value)
+}
 </script>
 
 <template>
@@ -17,7 +21,8 @@ const videoManifestUri = ref(defaultVideoManifestUri)
       class="w-full"
       v-model="videoManifestUri"
       placeholder="Enter the video manifest url"
+      @keydown.enter="onSubmit"
     />
-    <button @click="emit('submit', videoManifestUri)" class="whitespace-nowrap">Load video</button>
+    <button type="button" @click="onSubmit" class="whitespace-nowrap">Load video</button>
   </div>
 </template>

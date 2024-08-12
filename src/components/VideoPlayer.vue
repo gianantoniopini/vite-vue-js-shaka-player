@@ -63,12 +63,10 @@ const loadVideo = async (manifestUri) => {
 </script>
 
 <template>
-  <div class="flex flex-col items-start gap-3">
-    <div class="flex justify-center items-center text-center">
-      <div ref="videoContainerElement" class="mx-auto max-w-full w-[800px]">
-        <video id="video" ref="videoElement" :poster="posterUri" class="w-full h-full"></video>
-      </div>
+  <div class="flex flex-col gap-3 max-w-[600px]">
+    <div ref="videoContainerElement">
+      <video id="video" ref="videoElement" :poster="posterUri" class="w-full h-full"></video>
     </div>
-    <div>{{ message }}</div>
+    <div class="text-start">{{ message }}</div>
   </div>
 </template>

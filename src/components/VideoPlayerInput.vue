@@ -9,7 +9,15 @@ const defaultVideoManifestUri =
 const videoManifestUri = ref(defaultVideoManifestUri)
 
 const onSubmit = () => {
+  if (!validateVideoManifestUri()) {
+    return
+  }
+
   emit('submit', videoManifestUri.value)
+}
+
+const validateVideoManifestUri = () => {
+  return videoManifestUri.value && videoManifestUri.value.length > 0
 }
 </script>
 
@@ -19,7 +27,7 @@ const onSubmit = () => {
     <input
       id="videoManifestUriInput"
       class="w-full"
-      v-model="videoManifestUri"
+      v-model.trim="videoManifestUri"
       placeholder="Enter the video manifest url"
       @keydown.enter="onSubmit"
     />

@@ -10,7 +10,8 @@
     "javascript",
     "shaka-player",
     "video",
-    "video-player"
+    "video-player",
+    "tailwindcss"
   ],
   "homepage": "https://github.com/gianantoniopini/vite-vue-js-shaka-player#readme",
   "license": "MIT",

@@ -64,9 +64,19 @@ const loadVideo = async (manifestUri) => {
 
 <template>
   <div class="flex flex-col gap-3 max-w-[600px]">
-    <div ref="videoContainerElement">
-      <video id="video" ref="videoElement" :poster="posterUri" class="w-full h-full"></video>
+    <div ref="videoContainerElement" class="shadow">
+      <video ref="videoElement" :poster="posterUri" class="w-full h-full"></video>
     </div>
     <div class="text-start">{{ message }}</div>
   </div>
 </template>
+
+<style scoped>
+.shadow {
+  box-shadow:
+    0px 1px 2px rgba(0, 0, 0, 0.1),
+    0px 2px 4px rgba(0, 0, 0, 0.1),
+    0px 4px 8px rgba(0, 0, 0, 0.1),
+    0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+</style>

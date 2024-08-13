@@ -61,4 +61,4 @@ npm run preview
 
 ## License
 
-[MIT](LICENSE) © Gianantonio Pini
+[MIT](LICENSE.md) © Gianantonio Pini

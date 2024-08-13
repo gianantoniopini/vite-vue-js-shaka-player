@@ -6,10 +6,24 @@ This project is intended as a basic example of how to integrate [Shaka Player](h
 
 ## Table of Contents
 
+- [Background](#background)
+- [Features](#features)
 - [Prerequisites](#prerequisites)
 - [Install](#install)
-- [Run](#run)
+- [Run dev](#run-dev)
+- [Build for production](#build-for-production)
 - [License](#license)
+
+## Background
+
+This project was inspired by [shaka-player-vuejs](https://github.com/davidjamesherzog/shaka-player-vuejs), but uses a more modern tech stack with Shaka Player version 4 (instead of Shaka Player version 3), Vue 3 (instead of Vue 2) and Vite (instead of Vue CLI).
+
+## Features
+
+You can:
+
+- Enter the URL of a video manifest and get it loaded in the video player
+- Play the video
 
 ## Prerequisites
 
@@ -23,12 +37,26 @@ Install dependencies:
 npm install
 ```
 
-## Run
+## Run dev
 
 Start Vite dev server:
 
 ```sh
 npm run dev
+```
+
+## Build for production
+
+Produce application bundle:
+
+```sh
+npm run build
+```
+
+Preview the production build:
+
+```sh
+npm run preview
 ```
 
 ## License

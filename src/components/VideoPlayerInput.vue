@@ -22,15 +22,19 @@ const validateVideoManifestUri = () => {
 </script>
 
 <template>
-  <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
-    <label for="videoManifestUriInput" class="whitespace-nowrap">Video manifest:</label>
-    <input
-      id="videoManifestUriInput"
-      class="w-full"
-      v-model.trim="videoManifestUri"
-      placeholder="Enter the video manifest url"
-      @keydown.enter="onSubmit"
-    />
-    <button type="button" @click="onSubmit" class="whitespace-nowrap">Load video</button>
+  <div class="flex flex-col gap-3">
+    <div class="flex flex-col gap-1 items-start">
+      <label for="videoManifestUriInput" class="whitespace-nowrap">Video manifest:</label>
+      <input
+        id="videoManifestUriInput"
+        class="w-full"
+        v-model.trim="videoManifestUri"
+        placeholder="Enter the video manifest url"
+        @keydown.enter="onSubmit"
+      />
+    </div>
+    <button type="button" @click="onSubmit" class="whitespace-nowrap w-fit self-center">
+      Load video
+    </button>
   </div>
 </template>

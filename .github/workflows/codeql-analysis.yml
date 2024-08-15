@@ -2,11 +2,11 @@ name: CodeQL Analysis
 
 on:
   push:
-    branches: [master]
+    branches: [$default-branch]
   pull_request:
-    branches: [master]
+    branches: [$default-branch]
   schedule:
-    - cron: "00 1 * * 6"
+    - cron: '00 1 * * 6'
 
 jobs:
   analyze:

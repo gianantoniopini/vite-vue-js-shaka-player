@@ -4,7 +4,7 @@ import { ref } from 'vue'
 const emit = defineEmits(['submit'])
 
 const defaultVideoManifestUri =
-  'https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd'
+  'https://upload.wikimedia.org/wikipedia/commons/1/1d/Video_of_Mahatma_Gandhi.webm'
 
 const videoManifestUri = ref(defaultVideoManifestUri)
 

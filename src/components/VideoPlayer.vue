@@ -4,11 +4,11 @@ import { onMounted, ref, watch } from 'vue'
 import shakaPlayerUi from 'shaka-player/dist/shaka-player.ui.js'
 import 'shaka-player/dist/controls.css'
 
+import posterUri from '@/assets/Gandhi_Parliament_Square.jpg'
+
 const props = defineProps({
   manifestUri: String
 })
-
-const posterUri = 'https://shaka-player-demo.appspot.com/assets/poster.jpg'
 
 const videoContainerElement = ref(null)
 const videoElement = ref(null)
@@ -63,7 +63,7 @@ const loadVideo = async (manifestUri) => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-3 max-w-[600px]">
+  <div class="flex flex-col gap-3 max-w-[640px] max-h-[480px]">
     <div ref="videoContainerElement" class="shadow">
       <video ref="videoElement" :poster="posterUri" class="w-full h-full"></video>
     </div>

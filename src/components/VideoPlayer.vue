@@ -83,5 +83,6 @@ const loadVideo = async (manifestUri) => {
 .message {
   overflow-wrap: break-word;
   word-wrap: break-word;
+  word-break: break-word;
 }
 </style>

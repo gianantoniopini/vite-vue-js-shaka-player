@@ -81,6 +81,6 @@ const loadVideo = async (manifestUri) => {
 }
 
 .message {
-  word-break: break-word;
+  word-break: break-all;
 }
 </style>

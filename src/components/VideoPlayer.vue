@@ -67,7 +67,7 @@ const loadVideo = async (manifestUri) => {
     <div ref="videoContainerElement" class="shadow">
       <video ref="videoElement" :poster="posterUri" class="w-full h-full"></video>
     </div>
-    <span class="text-start message">{{ message }}</span>
+    <span class="text-start overflow-wrap">{{ message }}</span>
   </div>
 </template>
 
@@ -80,7 +80,7 @@ const loadVideo = async (manifestUri) => {
     0px 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.message {
+.overflow-wrap {
   overflow-wrap: anywhere;
 }
 </style>

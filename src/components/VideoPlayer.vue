@@ -67,7 +67,7 @@ const loadVideo = async (manifestUri) => {
     <div ref="videoContainerElement" class="shadow">
       <video ref="videoElement" :poster="posterUri" class="w-full h-full"></video>
     </div>
-    <span class="text-start break-words">{{ message }}</span>
+    <span class="text-start message">{{ message }}</span>
   </div>
 </template>
 
@@ -78,5 +78,10 @@ const loadVideo = async (manifestUri) => {
     0px 2px 4px rgba(0, 0, 0, 0.1),
     0px 4px 8px rgba(0, 0, 0, 0.1),
     0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 </style>

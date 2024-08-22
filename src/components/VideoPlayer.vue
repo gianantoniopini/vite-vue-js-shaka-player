@@ -67,7 +67,7 @@ const loadVideo = async (manifestUri) => {
     <div ref="videoContainerElement" class="shadow">
       <video ref="videoElement" :poster="posterUri" class="w-full h-full"></video>
     </div>
-    <span class="text-start text-wrap">{{ message }}</span>
+    <span class="text-start break-words">{{ message }}</span>
   </div>
 </template>
 

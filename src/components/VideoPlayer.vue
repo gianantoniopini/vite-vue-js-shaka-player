@@ -56,7 +56,7 @@ const loadVideo = async (manifestUri) => {
 
     message.value = `Video ${manifestUri} has been loaded.`
   } catch (error) {
-    message.value = `An error occurred while loading video ${manifestUri} .`
+    message.value = `An error occurred while loading video ${manifestUri} : ${error}`
     throw error
   }
 }

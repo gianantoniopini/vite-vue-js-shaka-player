@@ -1,31 +1,20 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref } from 'vue'
 
 import shakaPlayerUi from 'shaka-player/dist/shaka-player.ui.js'
 import 'shaka-player/dist/controls.css'
 
-import posterUri from '@/assets/Gandhi_Parliament_Square.jpg'
-
 const props = defineProps({
-  manifestUri: String
+  thumbnailUrl: { type: String, required: true }
 })
 
 const videoContainerElement = ref(null)
 const videoElement = ref(null)
+const manifestUri =
+  'https://upload.wikimedia.org/wikipedia/commons/1/1d/Video_of_Mahatma_Gandhi.webm'
 const message = ref('')
 
 const localPlayer = new shakaPlayerUi.Player()
-
-onMounted(async () => {
-  await initShakaPlayerUi()
-})
-
-watch(
-  () => props.manifestUri,
-  (newValue) => {
-    loadVideo(newValue)
-  }
-)
 
 const initShakaPlayerUi = async () => {
   message.value = 'Initializing the Shaka Player UI. Please wait...'
@@ -54,18 +43,28 @@ const loadVideo = async (manifestUri) => {
   try {
     await localPlayer.load(manifestUri)
 
-    message.value = `Video ${manifestUri} has been loaded.`
+    message.value = ''
   } catch (error) {
     message.value = `An error occurred while loading video ${manifestUri} : ${error}`
     throw error
   }
 }
+
+onMounted(async () => {
+  await initShakaPlayerUi()
+  await loadVideo(manifestUri)
+})
 </script>
 
 <template>
   <div class="flex flex-col gap-3 max-w-[640px] max-h-[480px]">
     <div ref="videoContainerElement" class="shadow">
-      <video ref="videoElement" :poster="posterUri" class="w-full h-full"></video>
+      <video
+        ref="videoElement"
+        :poster="props.thumbnailUrl"
+        autoplay="true"
+        class="w-full h-full"
+      ></video>
     </div>
     <span class="text-start overflow-wrap">{{ message }}</span>
   </div>

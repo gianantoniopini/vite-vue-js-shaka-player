@@ -1,7 +1,5 @@
-<script setup>
-import TheHome from '@/views/TheHome.vue'
-</script>
-
 <template>
-  <TheHome />
+  <main>
+    <RouterView />
+  </main>
 </template>

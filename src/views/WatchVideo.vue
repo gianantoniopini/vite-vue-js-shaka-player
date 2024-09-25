@@ -11,6 +11,10 @@ const video = videos.find((el) => {
 </script>
 
 <template>
-  <video-player v-if="video" :thumbnail-url="video.thumbnailUrl" />
+  <video-player
+    v-if="video"
+    :manifest-url="video.manifestUrl"
+    :thumbnail-url="video.thumbnailUrl"
+  />
   <div v-else class="w-full"><p>Video unavailable</p></div>
 </template>

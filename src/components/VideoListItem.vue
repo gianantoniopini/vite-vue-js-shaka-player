@@ -14,11 +14,11 @@ const toHHMMSS = (seconds) => {
 <template>
   <RouterLink
     :to="{ name: 'WatchVideo', params: { id: props.id } }"
-    class="flex flex-col max-w-sm rounded shadow-lg"
+    class="flex flex-col p-4 border border-gray-400 bg-white rounded shadow-lg"
   >
     <img class="w-full" :src="props.thumbnailUrl" :alt="props.title" />
     <div class="flex flex-grow flex-col gap-2 p-2 text-left justify-between">
-      <div class="font-bold text-xl">{{ props.title }}</div>
+      <div class="text-gray-900 font-bold text-xl">{{ props.title }}</div>
       <p class="text-gray-700 text-base">{{ toHHMMSS(props.duration) }}</p>
     </div>
   </RouterLink>

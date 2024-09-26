@@ -15,6 +15,7 @@ const video = videos.find((el) => {
     v-if="video"
     :manifest-url="video.manifestUrl"
     :thumbnail-url="video.thumbnailUrl"
+    :title="video.title"
   />
   <div v-else class="w-full"><p>Video unavailable</p></div>
 </template>

@@ -6,7 +6,8 @@ import 'shaka-player/dist/controls.css'
 
 const props = defineProps({
   manifestUrl: { type: String, required: true },
-  thumbnailUrl: { type: String, required: true }
+  thumbnailUrl: { type: String, required: true },
+  title: { type: String, required: true }
 })
 
 const videoContainerElement = ref(null)
@@ -56,28 +57,16 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-3 max-w-[640px]">
-    <div ref="videoContainerElement" class="shadow">
-      <video
-        ref="videoElement"
-        :poster="props.thumbnailUrl"
-        autoplay="true"
-        class="w-[640px]"
-      ></video>
+  <div class="flex flex-col gap-3 max-w-xl">
+    <div ref="videoContainerElement">
+      <video ref="videoElement" :poster="props.thumbnailUrl" autoplay="true" class="w-full"></video>
     </div>
+    <h1 class="text-start text-2xl font-bold">{{ props.title }}</h1>
     <span class="text-start overflow-wrap">{{ message }}</span>
   </div>
 </template>
 
 <style scoped>
-.shadow {
-  box-shadow:
-    0px 1px 2px rgba(0, 0, 0, 0.1),
-    0px 2px 4px rgba(0, 0, 0, 0.1),
-    0px 4px 8px rgba(0, 0, 0, 0.1),
-    0px 8px 16px rgba(0, 0, 0, 0.1);
-}
-
 .overflow-wrap {
   overflow-wrap: anywhere;
 }

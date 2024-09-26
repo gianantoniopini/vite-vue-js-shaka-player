@@ -57,7 +57,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-3 max-w-xl">
+  <div class="flex flex-col gap-5 max-w-xl">
     <div ref="videoContainerElement">
       <video ref="videoElement" :poster="props.thumbnailUrl" autoplay="true" class="w-full"></video>
     </div>

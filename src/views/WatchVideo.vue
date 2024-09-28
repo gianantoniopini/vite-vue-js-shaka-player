@@ -1,13 +1,11 @@
 <script setup>
-import videos from '../assets/videos.json'
-import VideoPlayer from '@/components/VideoPlayer.vue'
 import { useRoute } from 'vue-router'
+import { getVideoById } from '@/services/videos'
+import VideoPlayer from '@/components/VideoPlayer.vue'
 
 const route = useRoute()
 
-const video = videos.find((el) => {
-  return el.id === route.params.id
-})
+const video = await getVideoById(route.params.id)
 </script>
 
 <template>

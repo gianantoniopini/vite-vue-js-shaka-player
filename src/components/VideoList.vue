@@ -1,6 +1,8 @@
 <script setup>
-import videos from '../assets/videos.json'
+import { getAllVideos } from '@/services/videos'
 import VideoListItem from '@/components/VideoListItem.vue'
+
+const videos = await getAllVideos()
 </script>
 
 <template>

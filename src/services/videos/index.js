@@ -1,4 +1,4 @@
-import videos from '@/assets/videos.json'
+import videos from './data.json'
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 

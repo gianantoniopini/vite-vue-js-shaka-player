@@ -11,6 +11,7 @@ const video = await getVideoById(route.params.id)
 <template>
   <video-player
     v-if="video"
+    :license="video.license"
     :manifest-url="video.manifestUrl"
     :thumbnail-url="video.thumbnailUrl"
     :title="video.title"

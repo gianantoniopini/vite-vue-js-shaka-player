@@ -5,6 +5,7 @@ import shakaPlayerUi from 'shaka-player/dist/shaka-player.ui.js'
 import 'shaka-player/dist/controls.css'
 
 const props = defineProps({
+  license: { type: String, required: true },
   manifestUrl: { type: String, required: true },
   thumbnailUrl: { type: String, required: true },
   title: { type: String, required: true }
@@ -62,7 +63,8 @@ onMounted(async () => {
       <video ref="videoElement" :poster="props.thumbnailUrl" autoplay="true" class="w-full"></video>
     </div>
     <h1 class="text-start text-2xl font-bold">{{ props.title }}</h1>
-    <span class="text-start overflow-wrap">{{ message }}</span>
+    <span class="text-start text-lg overflow-wrap">License: {{ props.license }}</span>
+    <span class="text-start text-base overflow-wrap">{{ message }}</span>
   </div>
 </template>
 

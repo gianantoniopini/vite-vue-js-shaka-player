@@ -10,7 +10,7 @@ const getRandomInteger = (min, max) => {
  * Produces a random delay within a given range
  * @param {number} minDelayInMilliseconds The minimum delay in milliseconds
  * @param {number} maxDelayInMilliseconds The maximum delay in milliseconds
- * @return {Promise<unknown>} A promise
+ * @returns {Promise<unknown>}
  */
 const wait = (minDelayInMilliseconds, maxDelayInMilliseconds) => {
   const delayInMilliseconds = getRandomInteger(minDelayInMilliseconds, maxDelayInMilliseconds)

@@ -24,6 +24,13 @@ const video = await getVideoById(route.params.id)
     />
     <h1 class="text-start text-2xl font-bold">{{ video.title }}</h1>
     <span class="text-start text-lg overflow-wrap">License: {{ video.license }}</span>
+    <details class="text-start text-lg overflow-wrap">
+      <summary>Details</summary>
+      <p>
+        Learn more
+        <a :href="video.detailsUrl" target="_blank">about this video (opens in new tab)</a>
+      </p>
+    </details>
     <span class="text-start text-base overflow-wrap">{{ videoPlayerStatus }}</span>
   </div>
   <div v-else class="w-full"><p>Video unavailable</p></div>

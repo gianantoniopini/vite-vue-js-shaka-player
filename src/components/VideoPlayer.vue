@@ -5,20 +5,23 @@ import shakaPlayerUi from 'shaka-player/dist/shaka-player.ui.js'
 import 'shaka-player/dist/controls.css'
 
 const props = defineProps({
-  license: { type: String, required: true },
   manifestUrl: { type: String, required: true },
-  thumbnailUrl: { type: String, required: true },
-  title: { type: String, required: true }
+  thumbnailUrl: { type: String, required: true }
 })
+
+const emit = defineEmits(['statusChange'])
 
 const videoContainerElement = ref(null)
 const videoElement = ref(null)
-const message = ref('')
 
 const localPlayer = new shakaPlayerUi.Player()
 
+const emitStatusChangeEvent = (status) => {
+  emit('statusChange', status)
+}
+
 const initShakaPlayerUi = async () => {
-  message.value = 'Initializing the Shaka Player UI. Please wait...'
+  emitStatusChangeEvent('Initializing the Shaka Player UI. Please wait...')
 
   try {
     const ui = new shakaPlayerUi.ui.Overlay(
@@ -31,22 +34,22 @@ const initShakaPlayerUi = async () => {
 
     ui.getControls()
 
-    message.value = 'Shaka Player UI has been initialized.'
+    emitStatusChangeEvent('Shaka Player UI has been initialized.')
   } catch (error) {
-    message.value = 'An error occurred while initializing the Shaka Player UI.'
+    emitStatusChangeEvent('An error occurred while initializing the Shaka Player UI.')
     throw error
   }
 }
 
 const loadVideo = async () => {
-  message.value = `Loading video ${props.manifestUrl} . Please wait...`
+  emitStatusChangeEvent(`Loading video ${props.manifestUrl} . Please wait...`)
 
   try {
     await localPlayer.load(props.manifestUrl)
 
-    message.value = ''
+    emitStatusChangeEvent('')
   } catch (error) {
-    message.value = `An error occurred while loading video ${props.manifestUrl} : ${error}`
+    emitStatusChangeEvent(`An error occurred while loading video ${props.manifestUrl} : ${error}`)
     throw error
   }
 }
@@ -58,18 +61,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-5 max-w-xl">
-    <div ref="videoContainerElement">
-      <video ref="videoElement" :poster="props.thumbnailUrl" autoplay="true" class="w-full"></video>
-    </div>
-    <h1 class="text-start text-2xl font-bold">{{ props.title }}</h1>
-    <span class="text-start text-lg overflow-wrap">License: {{ props.license }}</span>
-    <span class="text-start text-base overflow-wrap">{{ message }}</span>
+  <div ref="videoContainerElement">
+    <video ref="videoElement" :poster="props.thumbnailUrl" autoplay="true" class="w-full"></video>
   </div>
 </template>
-
-<style scoped>
-.overflow-wrap {
-  overflow-wrap: anywhere;
-}
-</style>

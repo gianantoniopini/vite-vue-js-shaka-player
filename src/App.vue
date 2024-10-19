@@ -1,3 +1,7 @@
+<script setup>
+import LoadingMessage from '@/components/LoadingMessage.vue'
+</script>
+
 <template>
   <main>
     <router-view v-slot="{ Component }">
@@ -8,7 +12,7 @@
 
           <!-- loading state -->
           <template #fallback>
-            <div>Loading...</div>
+            <LoadingMessage />
           </template>
         </Suspense>
       </template>

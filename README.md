@@ -20,10 +20,9 @@ This project was inspired by [shaka-player-vuejs](https://github.com/davidjamesh
 
 ## Features
 
-You can:
+You can select from a list of 6 videos and watch the chosen video.
 
-- Enter the URL of a video manifest and get it loaded in the video player
-- Play the video
+All videos' files and images used in this project are sourced from [Wikimedia Commons](https://commons.wikimedia.org/wiki/Main_Page).
 
 ## Prerequisites
 

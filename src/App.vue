@@ -12,7 +12,7 @@ import LoadingMessage from '@/components/LoadingMessage.vue'
 
           <!-- loading state -->
           <template #fallback>
-            <LoadingMessage />
+            <LoadingMessage class="h-screen" />
           </template>
         </Suspense>
       </template>

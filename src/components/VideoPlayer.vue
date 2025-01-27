@@ -4,8 +4,8 @@ import { onMounted, ref } from 'vue'
 import shaka from 'shaka-player'
 
 const props = defineProps({
-  manifestUrl: { type: String, required: true },
-  thumbnailUrl: { type: String, required: true }
+  manifestPath: { type: String, required: true },
+  thumbnailPath: { type: String, required: true }
 })
 
 const emit = defineEmits(['statusChange'])
@@ -27,7 +27,7 @@ const init = async () => {
 
     await localPlayer.attach(videoElement.value)
 
-    await localPlayer.load(props.manifestUrl)
+    await localPlayer.load(props.manifestPath)
 
     emitStatusChangeEvent('')
   } catch (error) {
@@ -44,7 +44,7 @@ onMounted(async () => {
 <template>
   <video
     ref="videoElement"
-    :poster="props.thumbnailUrl"
+    :poster="props.thumbnailPath"
     autoplay="true"
     controls="true"
     class="w-full"

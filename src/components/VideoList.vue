@@ -12,7 +12,7 @@ const videos = await getAllVideos()
       :key="video.id"
       :duration="video.duration"
       :id="video.id"
-      :thumbnail-url="video.thumbnailUrl"
+      :thumbnail-path="video.thumbnailPath"
       :title="video.title"
     />
   </div>

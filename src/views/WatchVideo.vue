@@ -18,8 +18,8 @@ const video = await getVideoById(route.params.id)
 <template>
   <div v-if="video" class="flex flex-col gap-5 max-w-xl text-start ow-anywhere">
     <video-player
-      :manifest-url="video.manifestUrl"
-      :thumbnail-url="video.thumbnailUrl"
+      :manifest-path="video.manifestPath"
+      :thumbnail-path="video.thumbnailPath"
       @status-change="onVideoPlayerStatusChange"
     />
     <h1 class="text-2xl font-bold">{{ video.title }}</h1>

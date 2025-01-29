@@ -1,7 +1,8 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 
-import shaka from 'shaka-player'
+import shakaPlayerUi from 'shaka-player/dist/shaka-player.ui.js'
+import 'shaka-player/dist/controls.css'
 
 const props = defineProps({
   manifestPath: { type: String, required: true },
@@ -10,43 +11,57 @@ const props = defineProps({
 
 const emit = defineEmits(['statusChange'])
 
+const videoContainerElement = ref(null)
 const videoElement = ref(null)
+
+const localPlayer = new shakaPlayerUi.Player()
 
 const emitStatusChangeEvent = (status) => {
   emit('statusChange', status)
 }
 
-const init = async () => {
-  emitStatusChangeEvent('Initializing. Please wait...')
+const initShakaPlayerUi = async () => {
+  emitStatusChangeEvent('Initializing the Shaka Player UI. Please wait...')
 
   try {
-    // Install built-in polyfills to patch browser incompatibilities
-    shaka.polyfill.installAll()
-
-    const localPlayer = new shaka.Player()
+    const ui = new shakaPlayerUi.ui.Overlay(
+      localPlayer,
+      videoContainerElement.value,
+      videoElement.value
+    )
 
     await localPlayer.attach(videoElement.value)
 
+    ui.getControls()
+
+    emitStatusChangeEvent('Shaka Player UI has been initialized.')
+  } catch (error) {
+    emitStatusChangeEvent('An error occurred while initializing the Shaka Player UI.')
+    throw error
+  }
+}
+
+const loadVideo = async () => {
+  emitStatusChangeEvent(`Loading video ${props.manifestPath} . Please wait...`)
+
+  try {
     await localPlayer.load(props.manifestPath)
 
     emitStatusChangeEvent('')
   } catch (error) {
-    emitStatusChangeEvent(`An error occurred during initialization: ${error}`)
+    emitStatusChangeEvent(`An error occurred while loading video ${props.manifestPath} : ${error}`)
     throw error
   }
 }
 
 onMounted(async () => {
-  await init()
+  await initShakaPlayerUi()
+  await loadVideo()
 })
 </script>
 
 <template>
-  <video
-    ref="videoElement"
-    :poster="props.thumbnailPath"
-    autoplay="true"
-    controls="true"
-    class="w-full"
-  ></video>
+  <div ref="videoContainerElement">
+    <video ref="videoElement" :poster="props.thumbnailPath" autoplay="true" class="w-full"></video>
+  </div>
 </template>

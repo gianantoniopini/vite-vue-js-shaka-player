@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 import shakaPlayerUi from 'shaka-player/dist/shaka-player.ui.js'
 import 'shaka-player/dist/controls.css'
@@ -14,7 +14,8 @@ const emit = defineEmits(['statusChange'])
 const videoContainerElement = ref(null)
 const videoElement = ref(null)
 
-const localPlayer = new shakaPlayerUi.Player()
+let uiOverlay = null
+let player = new shakaPlayerUi.Player()
 
 const emitStatusChangeEvent = (status) => {
   emit('statusChange', status)
@@ -24,15 +25,15 @@ const initShakaPlayerUi = async () => {
   emitStatusChangeEvent('Initializing the Shaka Player UI. Please wait...')
 
   try {
-    const ui = new shakaPlayerUi.ui.Overlay(
-      localPlayer,
+    uiOverlay = new shakaPlayerUi.ui.Overlay(
+      player,
       videoContainerElement.value,
       videoElement.value
     )
 
-    await localPlayer.attach(videoElement.value)
+    await player.attach(videoElement.value)
 
-    ui.getControls()
+    uiOverlay.getControls()
 
     emitStatusChangeEvent('Shaka Player UI has been initialized.')
   } catch (error) {
@@ -45,7 +46,7 @@ const loadVideo = async () => {
   emitStatusChangeEvent(`Loading video ${props.manifestPath} . Please wait...`)
 
   try {
-    await localPlayer.load(props.manifestPath)
+    await player.load(props.manifestPath)
 
     emitStatusChangeEvent('')
   } catch (error) {
@@ -57,6 +58,19 @@ const loadVideo = async () => {
 onMounted(async () => {
   await initShakaPlayerUi()
   await loadVideo()
+})
+
+onUnmounted(async () => {
+  if (uiOverlay) {
+    await uiOverlay.destroy()
+  }
+
+  if (player) {
+    await player.destroy()
+  }
+
+  uiOverlay = undefined
+  player = undefined
 })
 </script>
 

@@ -8,6 +8,7 @@ This project is intended as a basic example of how to integrate [Shaka Player](h
 
 - [Background](#background)
 - [Features](#features)
+- [Video files](#video-files)
 - [Prerequisites](#prerequisites)
 - [Install](#install)
 - [Run dev](#run-dev)
@@ -20,9 +21,18 @@ This project was inspired by [shaka-player-vuejs](https://github.com/davidjamesh
 
 ## Features
 
-You can select from a list of 6 videos and watch the chosen video.
+You can select from a list of 6 sample videos and watch the chosen video.
 
-All videos' files and images used in this project are sourced from [Wikimedia Commons](https://commons.wikimedia.org/wiki/Main_Page).
+## Video files
+
+The manifest and image files of all sample videos used in this project are sourced from [Wikimedia Commons](https://commons.wikimedia.org/wiki/Main_Page).
+The original video manifests have been converted from WebM to MP4 format with [FFmpeg](https://github.com/FFmpeg/FFmpeg), using this example command:
+
+```sh
+ffmpeg -i https://upload.wikimedia.org/wikipedia/commons/f/f5/Coyote_Keeping_a_Watchful_Eye.webm -c:v libx264 -profile:v main -vf format=yuv420p -c:a aac -movflags +faststart -crf 30 public/videos/TgvHMDTQENg_manifest.mp4
+```
+
+The converted manifest and the image of each video are stored in the [videos](./public/videos) directory.
 
 ## Prerequisites
 

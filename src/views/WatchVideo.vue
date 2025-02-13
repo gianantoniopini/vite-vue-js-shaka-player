@@ -24,7 +24,7 @@ const video = await getVideoById(route.params.id)
     />
     <h1 class="text-2xl font-bold">{{ video.title }}</h1>
     <p class="text-lg">
-      "<a :href="video.detailsUrl" target="_blank" rel="noreferrer"
+      "<a :href="video.sourceUrl" target="_blank" rel="noreferrer"
         >{{ video.title }}
         <img src="@/assets/externalLink.svg" alt="External link" class="inline" /></a
       >" by {{ video.author }}, {{ video.license }}, via {{ video.hostingWebsiteName }}

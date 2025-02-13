@@ -1,16 +1,20 @@
 [
   {
+    "author": "Drummyfish",
     "detailsUrl": "https://commons.wikimedia.org/wiki/File:Tortoise_laying_eggs.webm",
     "duration": 25,
+    "hostingInstitution": "Wikimedia Commons",
     "id": "6M125ll2ezP",
-    "license": "Public domain",
+    "license": "CC0",
     "manifestPath": "videos/6M125ll2ezP_manifest.mp4",
     "thumbnailPath": "videos/6M125ll2ezP_thumbnail.jpg",
     "title": "Tortoise laying eggs"
   },
   {
+    "author": "U.S. Fish & Wildlife Service",
     "detailsUrl": "https://commons.wikimedia.org/wiki/File:Florida_Panther_Trail_cam.webm",
     "duration": 35,
+    "hostingInstitution": "Wikimedia Commons",
     "id": "lfmtNrhE0Dp",
     "license": "Public domain",
     "manifestPath": "videos/lfmtNrhE0Dp_manifest.mp4",
@@ -18,8 +22,10 @@
     "title": "Florida Panther Trail cam"
   },
   {
+    "author": "Alaska Region U.S. Fish & Wildlife Service",
     "detailsUrl": "https://commons.wikimedia.org/wiki/File:Kodiak_bear_family.webm",
     "duration": 21,
+    "hostingInstitution": "Wikimedia Commons",
     "id": "lwR8Z15gW68",
     "license": "Public domain",
     "manifestPath": "videos/lwR8Z15gW68_manifest.mp4",
@@ -27,8 +33,10 @@
     "title": "Kodiak bear family"
   },
   {
+    "author": "Alaska Region U.S. Fish & Wildlife Service",
     "detailsUrl": "https://commons.wikimedia.org/wiki/File:Nursing_moose_calf.webm",
     "duration": 18,
+    "hostingInstitution": "Wikimedia Commons",
     "id": "gAafvhgBTdU",
     "license": "Public domain",
     "manifestPath": "videos/gAafvhgBTdU_manifest.mp4",
@@ -36,8 +44,10 @@
     "title": "Nursing moose calf"
   },
   {
+    "author": "U.S. Fish and Wildlife Service, National Conservation Training Center (USFWS/NCTC)",
     "detailsUrl": "https://commons.wikimedia.org/wiki/File:Desert_Kit_Fox_(Vulpes_macrotis_arsipus).webm",
     "duration": 30,
+    "hostingInstitution": "Wikimedia Commons",
     "id": "VcLjstP4GbC",
     "license": "Public domain",
     "manifestPath": "videos/VcLjstP4GbC_manifest.mp4",
@@ -45,8 +55,10 @@
     "title": "Desert Kit Fox (Vulpes macrotis arsipus)"
   },
   {
+    "author": "USFWS Mountain-Prairie",
     "detailsUrl": "https://commons.wikimedia.org/wiki/File:Coyote_Keeping_a_Watchful_Eye.webm",
     "duration": 23,
+    "hostingInstitution": "Wikimedia Commons",
     "id": "TgvHMDTQENg",
     "license": "Public domain",
     "manifestPath": "videos/TgvHMDTQENg_manifest.mp4",

@@ -23,14 +23,12 @@ const video = await getVideoById(route.params.id)
       @status-change="onVideoPlayerStatusChange"
     />
     <h1 class="text-2xl font-bold">{{ video.title }}</h1>
-    <span class="text-lg">License: {{ video.license }}</span>
-    <details class="text-lg">
-      <summary>Details</summary>
-      <p>
-        Learn more
-        <a :href="video.detailsUrl" target="_blank">about this video (opens in new tab)</a>
-      </p>
-    </details>
+    <p class="text-lg">
+      "<a :href="video.detailsUrl" target="_blank" rel="noreferrer"
+        >{{ video.title }}
+        <img src="@/assets/externalLink.svg" alt="External link" class="inline" /></a
+      >" by {{ video.author }}, {{ video.license }}, via {{ video.hostingInstitution }}
+    </p>
     <span class="text-base">{{ videoPlayerStatus }}</span>
   </div>
   <div v-else class="w-full"><p>Video unavailable</p></div>

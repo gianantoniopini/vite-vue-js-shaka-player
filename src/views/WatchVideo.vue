@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { getVideoById } from '@/services/videos'
 import VideoPlayer from '@/components/VideoPlayer.vue'
+import VideoAttribution from '@/components/VideoAttribution.vue'
 
 const route = useRoute()
 
@@ -23,12 +24,13 @@ const video = await getVideoById(route.params.id)
       @status-change="onVideoPlayerStatusChange"
     />
     <h1 class="text-2xl font-bold">{{ video.title }}</h1>
-    <p class="text-lg">
-      "<a :href="video.sourceUrl" target="_blank" rel="noreferrer"
-        >{{ video.title }}
-        <img src="@/assets/externalLink.svg" alt="External link" class="inline" /></a
-      >" by {{ video.author }}, {{ video.license }}, via {{ video.hostingWebsiteName }}
-    </p>
+    <video-attribution
+      :author="video.author"
+      :hosting-website-name="video.hostingWebsiteName"
+      :license="video.license"
+      :source-url="video.sourceUrl"
+      :title="video.title"
+    />
     <span class="text-base">{{ videoPlayerStatus }}</span>
   </div>
   <div v-else class="w-full"><p>Video unavailable</p></div>

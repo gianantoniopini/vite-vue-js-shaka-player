@@ -76,6 +76,6 @@ onUnmounted(async () => {
 
 <template>
   <div ref="videoContainerElement">
-    <video ref="videoElement" :poster="props.thumbnailPath" class="w-full"></video>
+    <video ref="videoElement" :poster="props.thumbnailPath" class="w-full" playsinline></video>
   </div>
 </template>

@@ -17,7 +17,7 @@ This project is intended as a basic example of how to integrate [Shaka Player](h
 
 ## Background
 
-This project was inspired by [shaka-player-vuejs](https://github.com/davidjamesherzog/shaka-player-vuejs), but uses a more modern tech stack with Shaka Player version 4 (instead of Shaka Player version 3), Vue 3 (instead of Vue 2) and Vite (instead of Vue CLI).
+This project was inspired by [shaka-player-vuejs](https://github.com/davidjamesherzog/shaka-player-vuejs), but uses a more modern tech stack with Shaka Player version 4, Vue version 3 and Vite.
 
 ## Features
 

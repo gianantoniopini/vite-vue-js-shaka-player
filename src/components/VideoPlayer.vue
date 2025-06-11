@@ -31,9 +31,13 @@ const initShakaPlayerUi = async () => {
       videoElement.value
     )
 
-    await player.attach(videoElement.value)
+    const config = {
+      enableFullscreenOnRotation: false,
+      forceLandscapeOnFullscreen: false
+    }
+    uiOverlay.configure(config)
 
-    uiOverlay.getControls()
+    await player.attach(videoElement.value)
 
     emitStatusChangeEvent('Shaka Player UI has been initialized.')
   } catch (error) {

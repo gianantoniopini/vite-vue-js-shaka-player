@@ -4,7 +4,7 @@ import VideoList from '@/components/VideoList.vue'
 </script>
 
 <template>
-  <default-layout>
-    <video-list />
-  </default-layout>
+  <DefaultLayout>
+    <VideoList />
+  </DefaultLayout>
 </template>

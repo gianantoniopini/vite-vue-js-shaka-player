@@ -5,7 +5,7 @@ import Navbar from '@/components/TheNavbar.vue'
 <template>
   <div class="flex flex-col gap-5">
     <header>
-      <navbar />
+      <Navbar />
     </header>
 
     <main>

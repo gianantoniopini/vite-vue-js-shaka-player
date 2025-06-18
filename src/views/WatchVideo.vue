@@ -18,15 +18,15 @@ const video = await getVideoById(route.params.id)
 </script>
 
 <template>
-  <default-layout>
+  <DefaultLayout>
     <div v-if="video" class="flex flex-col gap-5 max-w-xl text-start ow-anywhere">
-      <video-player
+      <VideoPlayer
         :manifest-path="video.manifestPath"
         :thumbnail-path="video.thumbnailPath"
         @status-change="onVideoPlayerStatusChange"
       />
       <h1 class="text-2xl font-bold">{{ video.title }}</h1>
-      <video-attribution
+      <VideoAttribution
         :author="video.author"
         :hosting-website-name="video.hostingWebsiteName"
         :license="video.license"
@@ -36,7 +36,7 @@ const video = await getVideoById(route.params.id)
       <span class="text-base">{{ videoPlayerStatus }}</span>
     </div>
     <div v-else class="w-full"><p>Video unavailable</p></div>
-  </default-layout>
+  </DefaultLayout>
 </template>
 
 <style scoped>

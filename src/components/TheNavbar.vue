@@ -18,7 +18,7 @@ const toggleNav = () => {
           >Logo
         </router-link>
         <!-- Mobile menu button -->
-        <div @click="toggleNav" class="flex md:hidden">
+        <div class="flex md:hidden" @click="toggleNav">
           <button
             type="button"
             class="text-gray-100 hover:text-gray-400 focus:outline-none focus:text-gray-400"

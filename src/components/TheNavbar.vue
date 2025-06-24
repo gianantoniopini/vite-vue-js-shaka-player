@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 const showMenu = ref(false)
 
-const toggleNav = () => {
+const toggleMenu = () => {
   showMenu.value = !showMenu.value
 }
 </script>
@@ -19,7 +19,7 @@ const toggleNav = () => {
       </RouterLink>
 
       <!-- Mobile menu button -->
-      <div class="flex md:hidden" @click="toggleNav">
+      <div class="flex md:hidden" @click="toggleMenu">
         <button type="button" class="text-slate-500 dark:text-white">
           <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
             <path

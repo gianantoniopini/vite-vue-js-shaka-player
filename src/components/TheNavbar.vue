@@ -9,13 +9,15 @@ const toggleNav = () => {
 </script>
 
 <template>
-  <nav class="p-4 md:flex md:justify-between md:items-center bg-transparent dark:bg-gray-900">
+  <nav class="md:flex md:justify-between md:items-center bg-transparent">
     <div class="flex items-center justify-between">
-      <RouterLink
-        :to="{ name: 'Home' }"
-        class="text-xl font-bold md:text-2xl text-black dark:text-white"
-        >Logo</RouterLink
-      >
+      <RouterLink :to="{ name: 'Home' }" class="text-black dark:text-white">
+        <svg viewBox="0 0 100 40.213" class="w-12 h-12 fill-current">
+          <polygon points="75.344 20.106 75.344 40.213 0 40.213 0 0 75.344 0" />
+          <polygon points="75.344 20.106 100 36.705 100 20.106 100 3.508" />
+        </svg>
+      </RouterLink>
+
       <!-- Mobile menu button -->
       <div class="flex md:hidden" @click="toggleNav">
         <button type="button" class="text-slate-500 dark:text-white">
@@ -29,7 +31,6 @@ const toggleNav = () => {
       </div>
     </div>
 
-    <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
     <ul
       :class="showMenu ? 'flex' : 'hidden'"
       class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0 text-black/60 dark:text-white"

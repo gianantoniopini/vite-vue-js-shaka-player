@@ -1,11 +1,13 @@
 import { createWebHashHistory, createRouter } from 'vue-router'
 
 import Home from '@/views/Home.vue'
+import About from '@/views/About.vue'
 import WatchVideo from '@/views/WatchVideo.vue'
 import PageNotFound from '@/views/PageNotFound.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
+  { path: '/about', name: 'About', component: About },
   { path: '/watch/:id', name: 'WatchVideo', component: WatchVideo },
   { path: '/:catchAll(.*)*', name: 'NotFound', component: PageNotFound }
 ]

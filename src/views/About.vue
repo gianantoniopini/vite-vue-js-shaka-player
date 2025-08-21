@@ -18,7 +18,7 @@ import DefaultLayout from '@/layouts/DefaultLayout.vue'
           application using Vite and JavaScript.
         </p>
         <p>
-          All the source code is available
+          All the source code for this project is available
           <a
             href="https://github.com/gianantoniopini/vite-vue-js-shaka-player"
             target="_blank"

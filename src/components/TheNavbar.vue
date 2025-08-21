@@ -38,6 +38,9 @@ const toggleMenu = () => {
       <li>
         <RouterLink :to="{ name: 'Home' }">Home</RouterLink>
       </li>
+      <li>
+        <RouterLink :to="{ name: 'About' }">About</RouterLink>
+      </li>
     </ul>
   </nav>
 </template>
